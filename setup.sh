@@ -1,4 +1,7 @@
 echo "[auto] Setup Begin ..."
+pyver=$(python --version)
+if [ "$pyver" != "Python 3.7.9" ]
+then
 echo "[auto] Install Basic ..."
 yum install -y wget gcc tar make 
 echo "[auto] Install Python Dependence ..."
@@ -21,6 +24,8 @@ echo "[auto] Remove Old python link ..."
 rm -rf /usr/bin/python
 echo "[auto] Python link ..."
 ln -s /usr/local/bin/python3.7 /usr/bin/python
-python -V
 echo "[auto] Python Finished !!!"
+fi
+echo "[auto] Python --version"
+python -V
 echo "[auto] Setup Finished !!!"
